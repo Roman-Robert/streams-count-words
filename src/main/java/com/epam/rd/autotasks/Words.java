@@ -13,7 +13,7 @@ public class Words {
 
         List<String> words = lines.stream()
                 .map(line -> line.toLowerCase()
-                        .replaceAll("[.,]", "")
+                        .replaceAll("[^a-zA-Zа-яА-Яóöáúíèêéëïü0123456789]+", " ")
                         .split(" "))
                 .flatMap(Arrays :: stream)
                 .filter(word -> word.length() >= 4)
@@ -30,7 +30,7 @@ public class Words {
 
 
         return words.toString()
-                .replaceAll(", ", "\n")
+                .replace(", ", "\n")
                 .replaceAll("[\\],\\[]", "");
     }
 }
