@@ -21,9 +21,12 @@ public class Words {
                 .entrySet()
                 .stream()
                 .filter(w -> w.getValue() >=10 )
+                .sorted(Map.Entry.comparingByKey())
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .map(result -> String.format("%s - %d", result.getKey(), result.getValue()))
                 .collect(Collectors.toList());
+
+
 
 
         return words.toString()
